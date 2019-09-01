@@ -1,38 +1,26 @@
-import * as WebBrowser from 'expo-web-browser';
-import React from 'react';
+import React, { Component } from 'react';
+import Canvas from 'react-native-canvas';
 import {
   Platform,
-  ScrollView,
   StyleSheet,
-  Text,
-  View,
 } from 'react-native';
 
 import { MonoText } from '../components/StyledText';
 
-export default function HomeScreen() {
-  return (
-    <View style={styles.container}>
-      <ScrollView
-        style={styles.container}
-        contentContainerStyle={styles.contentContainer}>
 
-        <View style={styles.getStartedContainer}>
+class HomeScreen extends Component {
+  handleCanvas = (canvas) => {
+    const ctx = canvas.getContext('2d');
+    ctx.fillStyle = 'purple';
+    ctx.fillRect(0, 0, 100, 100);
+    console.log('ctx: ', ctx);
+  }
 
-          <Text style={styles.getStartedText}>Let's change the world! 2</Text>
-
-          <View
-            style={[styles.codeHighlightContainer, styles.homeScreenFilename]}>
-            <MonoText>screens/ResistencyScreen</MonoText>
-          </View>
-
-          <Text style={styles.getStartedText}>
-            Change this text and your app will automatically reload.
-          </Text>
-        </View>
-      </ScrollView>
-    </View>
-  );
+  render() {
+    return (
+      <Canvas ref={this.handleCanvas}/> 
+    );
+  }
 }
 
 HomeScreen.navigationOptions = {
@@ -42,7 +30,7 @@ HomeScreen.navigationOptions = {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: 'blue',
   },
   developmentModeText: {
     marginBottom: 20,
@@ -127,3 +115,5 @@ const styles = StyleSheet.create({
     color: '#2e78b7',
   },
 });
+
+export default HomeScreen;

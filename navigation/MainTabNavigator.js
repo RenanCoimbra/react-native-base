@@ -92,10 +92,7 @@ SettingsStack.navigationOptions = {
 SettingsStack.path = '';
 
 const tabNavigator = createBottomTabNavigator({
-  HomeStack,
   ResistencyStack,
-  LinksStack,
-  SettingsStack,
 });
 
 tabNavigator.path = '';
