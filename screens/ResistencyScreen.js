@@ -23,7 +23,7 @@ export default function HomeScreen() {
 
           <View
             style={[styles.codeHighlightContainer, styles.homeScreenFilename]}>
-            <MonoText>screens/HomeScreen.js</MonoText>
+            <MonoText>screens/ResistencyScreen</MonoText>
           </View>
 
           <Text style={styles.getStartedText}>
